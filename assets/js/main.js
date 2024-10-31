@@ -1,5 +1,7 @@
 const pokemonList = document.getElementById('pokemonList')
 const loadMoreButton = document.getElementById('loadMoreButton')
+const sectionPrincipal = document.getElementById('principal')
+const sectionDetail = document.getElementById('detail')
 
 const maxRecords = 151
 const limit = 10
@@ -7,7 +9,7 @@ let offset = 0;
 
 function convertPokemonToLi(pokemon) {
     return `
-        <li class="pokemon ${pokemon.type}">
+        <li class="pokemon ${pokemon.type}" onClick="openDetail(${pokemon.number})">
             <span class="number">#${pokemon.number}</span>
             <span class="name">${pokemon.name}</span>
 
@@ -45,3 +47,14 @@ loadMoreButton.addEventListener('click', () => {
         loadPokemonItens(offset, limit)
     }
 })
+
+function openDetail(idPokemon) {
+    sectionPrincipal.style.setProperty('display', 'none');
+    sectionDetail.style.setProperty('display', 'block');
+
+}
+
+function voltar() {
+    sectionPrincipal.attributeStyleMap.delete("display");
+    sectionDetail.style.setProperty('display', 'none');
+}
