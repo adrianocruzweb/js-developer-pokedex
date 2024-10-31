@@ -9,7 +9,7 @@ let offset = 0;
 
 function convertPokemonToLi(pokemon) {
     return `
-        <li class="pokemon ${pokemon.type}" onClick="openDetail(${pokemon.number})">
+        <li class="pokemon ${pokemon.type}" onClick="openDetail(event,${pokemon.number})">
             <span class="number">#${pokemon.number}</span>
             <span class="name">${pokemon.name}</span>
 
@@ -48,14 +48,17 @@ loadMoreButton.addEventListener('click', () => {
     }
 })
 
-function openDetail(idPokemon) {
-    sectionPrincipal.style.setProperty('display', 'none');
-    sectionDetail.style.setProperty('display', 'block');
-
+function openDetail(event, idPokemon) {
+    sectionPrincipal.style.display = 'none';
+    sectionDetail.style.display = 'block';
+    /* sectionDetail.style.removeProperty('display');
+    sectionPrincipal.style.removeProperty('display'); */
 }
 
-function voltar() {
-    sectionPrincipal.attributeStyleMap.delete("display");
-    sectionDetail.attributeStyleMap.delete("display");
-    sectionDetail.style.setProperty('display', 'none');
+function voltar(event) {
+    sectionPrincipal.style.display = 'block';
+    sectionDetail.style.display = 'none';
+    /* sectionPrincipal.style.removeProperty('display');
+    sectionDetail.style.removeProperty('display');
+    sectionDetail.style.display = 'none'; */
 }
