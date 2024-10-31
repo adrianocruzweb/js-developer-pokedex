@@ -56,5 +56,6 @@ function openDetail(idPokemon) {
 
 function voltar() {
     sectionPrincipal.attributeStyleMap.delete("display");
+    sectionDetail.attributeStyleMap.delete("display");
     sectionDetail.style.setProperty('display', 'none');
 }

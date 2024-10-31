@@ -19,6 +19,7 @@ body {
     height: 100vh;
     padding: 1rem;
     background-color: #fff;
+    display: none;
 }
 
 @media screen and (min-width: 992px) {
@@ -37,10 +38,3 @@ body {
     }
 }
 
-.visible {
-    visibility: visible;
-}
-
-.invisible {
-    visibility: hidden;
-}
